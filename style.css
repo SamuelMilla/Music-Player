@@ -90,7 +90,7 @@ body {
     color: var(--lightblack);
 }
 
-.song0-details .name {
+.song-details .name {
     font-size: 21px;
 }
 
@@ -159,7 +159,7 @@ body {
     -webkit-text-fill-color: transparent;
 }
 
-.controls i:nth-chil(2),
+.controls i:nth-child(2),
 .controls i:nth-child(4){
     font-size: 43px;
 }
