@@ -147,3 +147,68 @@ mainAudio.addEventListener("ended", ()=> {
                 break;
     }
 });
+
+moreMusicBtn.addEventlistener("click", ()=> {
+    musicList.classList.toggle("show");
+});
+
+closemoreMusic.addEventListener("click", ()=> {
+    moreMusicBtn.click();
+});
+
+const ulTag = wrapper.querySelector("ul");
+for (let i = 0; i < allMusic.length; i++) {
+    let liTag = `<li li-index="${i + i}">
+                    <div class="row">
+                        <span>${allMusic[i].name}</span>
+                        <p>${allMusic[i].artist}</p>
+                    </div>
+                    <span id="${allMusic[i].src}" class="audio-duration">3:40</span>
+                    <audio class="${allMsuci[i].src}" src="songs/${allMusic[i].src}.mp3"></audio>
+                    </li>`;
+    ulTag.insertAdjacentHTML("beforeend", liTag);
+    
+    let liAudioDurationTag = ulTag.querySelector(`#${allMusic[i].src}`);
+    let liAudioTag = ulTag.querySelector(`.${allMusic[i].src}`);
+    liAudioTag.addEventListener("loadeddata", ()=> {
+        let duration = liAudioTag.duration;
+        let totalMin = Math.floor(duration / 60);
+        let totalSec = Math.floor(duration % 60);
+
+        if(totalSec < 10){
+            totalSec = `0${totalSec}`;
+        };
+        
+        liAudioDurationTag.innerText = `${totalMin}:${totalSec}`;
+        liAudioDurationTag.setAttribute("t-duration", `${totalMin}:${totalSec}`);
+    });
+}
+
+function playingSong() {
+    const allLiTag = ulTag.querySelectorAll("li");
+
+    for (let j = 0; j < allLiTag.length; j++) {
+        let audioTag = allLiTag[j].querySelector(".audio-duration");
+
+            if(allLiTag[j].classList.contains("playing")) {
+                allLiTag[j].classList.remove("playing");
+                let adDuration = audioTag.getAttribute("t-duration");
+                audioTag.innerText = adDuration;
+            }
+
+            if(allLiTag[j].getAttribute("li-index") == musicIndex) {
+                allLiTag[j].classList.add("playing");
+                audioTag.innerText = "Playing";
+            }
+
+            allLiTag[j].setAttribute("onclick", "clicked(this)");
+    }
+}
+
+function clicked(element) {
+    let getLiIndex = element.getAttribute("li-index");
+    musicIndex = getLiIndex;
+    loadMusic(musicIndex);
+    playMusic();
+    playingSong();
+}
