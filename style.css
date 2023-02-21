@@ -13,11 +13,11 @@
 }
 
 :root {
-    --pink: #FF74A4;
-    --violet: #9F6EA3;
+    --pink: #ff74a4;
+    --violet: #9F6ea3;
     --lightblack: #515C6F;
-    --withe: #FFFFFF;
-    --darkwhite: #CECACA;
+    --white: #ffffff;
+    --darkwhite: #cecaca;
     --pinkshadow: #ffcbdd;
     --lightbshadow: rgba(0,0,0,0.15);
 }
@@ -62,7 +62,7 @@ body {
 
 .top-bar span {
     font-size: 18px;
-    margin-left: -3px;
+    margin-left: 100px;
     color: var(--lightblack);
 }
 
@@ -231,6 +231,14 @@ body {
     align-items: center;
     font-size: 19px;
     color: var(--lightblack);
+}
+
+.header .row i {
+    cursor: default;
+}
+
+.header .row span {
+    margin-left: 5px;
 }
 
 .header #close {

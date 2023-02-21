@@ -48,7 +48,7 @@ let allMusic = [
 
         {
                 name: "When I fall in love",
-                aritist: "Primary Feat. Meego, 수란",
+                artist: "Primary Feat. Meego, 수란",
                 img: "Primary - 'When I fall in love (Feat. Meego, 수란) MV",
                 src: "Primary - 'When I fall in love (Feat. Meego, 수란) MV"
         },

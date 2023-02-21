@@ -1,6 +1,6 @@
 const wrapper = document.querySelector(".wrapper"),
 musicImg = wrapper.querySelector(".img-area img"),
-musicName = wrapper.querySelector(".song-details . name"),
+musicName = wrapper.querySelector(".song-details .name"),
 musicArtist = wrapper.querySelector(".song-details .artist"),
 playPauseBtn = wrapper.querySelector(".play-pause"),
 prevBtn = wrapper.querySelector("#prev"),
@@ -12,7 +12,7 @@ musicList = wrapper.querySelector(".music-list"),
 moreMusicBtn = wrapper.querySelector("#more-music"),
 closemoreMusic = musicList.querySelector("#close");
 
-let musicIndex = Math.floow((Math.random() * allMusic.length) + 1);
+let musicIndex = Math.floor((Math.random() * allMusic.length) + 1);
 isMusicPause = true;
 
 window.addEventListener("load", ()=> {
@@ -23,7 +23,7 @@ window.addEventListener("load", ()=> {
 function loadMusic(indexNumb) {
     musicName.innerText = allMusic[indexNumb - 1].name;
     musicArtist.innerText = allMusic[indexNumb - 1].artist;
-    musicImg.src = `images/${allMusic[indexNumb - 1].src}.jpg,.png`;
+    musicImg.src = `images/${allMusic[indexNumb - 1].src}.jpg`;
     mainAudio.src = `songs/${allMusic[indexNumb - 1].src}.mp3`; 
 }
 
@@ -50,7 +50,7 @@ function nextMusic() {
 }
 
 playPauseBtn.addEventListener("click", ()=> {
-    const isMusicPlay =wrapper.classList.contains("paused");
+    const isMusicPlay = wrapper.classList.contains("paused");
     isMusicPlay ? pauseMusic() : playMusic();
     playingSong();
 });
@@ -73,8 +73,8 @@ mainAudio.addEventListener("timeupdate", (e)=> {
     musicDuration = wrapper.querySelector(".max-duration");
     mainAudio.addEventListener("loadeddata", ()=> {
         let mainAdDuration = mainAudio.duration;
-        let totalMin = Math.floow(mainAdDuration / 60);
-        let totalSec = Math.floow(mainAdDuration % 60);
+        let totalMin = Math.floor(mainAdDuration / 60);
+        let totalSec = Math.floor(mainAdDuration % 60);
 
         if(totalSec < 10){
             totalSec = `0${totalSec}`;
@@ -148,9 +148,9 @@ mainAudio.addEventListener("ended", ()=> {
     }
 });
 
-moreMusicBtn.addEventlistener("click", ()=> {
+moreMusicBtn.addEventListener("click", ()=>{
     musicList.classList.toggle("show");
-});
+  });
 
 closemoreMusic.addEventListener("click", ()=> {
     moreMusicBtn.click();
@@ -164,7 +164,7 @@ for (let i = 0; i < allMusic.length; i++) {
                         <p>${allMusic[i].artist}</p>
                     </div>
                     <span id="${allMusic[i].src}" class="audio-duration">3:40</span>
-                    <audio class="${allMsuci[i].src}" src="songs/${allMusic[i].src}.mp3"></audio>
+                    <audio class="${allMusic[i].src}" src="songs/${allMusic[i].src}.mp3"></audio>
                     </li>`;
     ulTag.insertAdjacentHTML("beforeend", liTag);
     
@@ -210,5 +210,5 @@ function clicked(element) {
     musicIndex = getLiIndex;
     loadMusic(musicIndex);
     playMusic();
-    playingSong();
+    Playing();
 }
