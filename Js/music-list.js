@@ -33,10 +33,10 @@ let allMusic = [
         },
 
         {
-                name: "Thinkin Bout You",
-                artist: "Katie",
-                img: "Katie - Thinkin Bout You",
-                src: "Katie - Thinkin Bout You"
+                name: "Adesso e fortuna",
+                artist: "新居 昭乃 - Akino Arai",
+                img: "新居 昭乃 - Adesso e fortuna",
+                src: "新居 昭乃 - Adesso e fortuna"
         },
 
         {
